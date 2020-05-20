@@ -12,7 +12,7 @@
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2017-06-01",
+            "apiVersion": "2019-06-01",
             "location": "[parameters('moodleCommon').location]",
             "name": "[parameters('moodleCommon').storageAccountName]",
             "kind": "FileStorage",
