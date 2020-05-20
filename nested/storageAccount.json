@@ -15,7 +15,7 @@
             "apiVersion": "2019-06-01",
             "location": "[parameters('moodleCommon').location]",
             "name": "[parameters('moodleCommon').storageAccountName]",
-            "kind": "FileStorage",
+            "kind": "BlockBlobStorage",
             "sku": {
                 "name": "[parameters('moodleCommon').storageAccountType]"
             },
