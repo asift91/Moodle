@@ -361,6 +361,7 @@
         "fileServerType": {
             "defaultValue": "dummy",
             "allowedValues": [
+                "dummy",
                 "gluster",
                 "nfs",
                 "nfs-ha",
