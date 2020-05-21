@@ -110,6 +110,7 @@ check_fileServerType_param $fileServerType
     configure_nfs_client_and_mount0 $nfsByoIpExportPath /moodle
   else # "azurefiles"
     # Added comment to skip the azurefiles
+    echo "else statement execute"
     #setup_and_mount_azure_files_moodle_share $storageAccountName $storageAccountKey
   fi
 
