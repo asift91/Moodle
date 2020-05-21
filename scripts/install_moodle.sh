@@ -65,7 +65,8 @@ set -ex
     echo $tikaVmIP >> /tmp/vars.txt
     echo $nfsByoIpExportPath >> /tmp/vars.txt
 
-    check_fileServerType_param $fileServerType
+    #for passing a dummy value for FileServerType
+    #check_fileServerType_param $fileServerType
 
     if [ "$dbServerType" = "mysql" ]; then
       mysqlIP=$dbIP
