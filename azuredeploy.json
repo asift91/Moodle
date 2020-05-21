@@ -359,7 +359,7 @@
             "type": "string"
         },
         "fileServerType": {
-            "defaultValue": "nfs",
+            "defaultValue": "dummy",
             "allowedValues": [
                 "gluster",
                 "nfs",
