@@ -359,7 +359,7 @@
             "type": "string"
         },
         "fileServerType": {
-            "defaultValue": "azurefiles",
+            "defaultValue": "nfs-ha",
             "allowedValues": [
                 "gluster",
                 "nfs",
