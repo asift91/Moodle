@@ -108,8 +108,9 @@ check_fileServerType_param $fileServerType
     # mount NFS-BYO export
     echo -e '\n\rMounting NFS export from '$nfsByoIpExportPath' on /moodle and adding it to /etc/fstab\n\r'
     configure_nfs_client_and_mount0 $nfsByoIpExportPath /moodle
-  else # "azurefiles"
-    setup_and_mount_azure_files_moodle_share $storageAccountName $storageAccountKey
+  #else # "azurefiles"
+    # Added comment to skip the azurefiles
+    #setup_and_mount_azure_files_moodle_share $storageAccountName $storageAccountKey
   fi
 
   # Configure syslog to forward
