@@ -492,7 +492,7 @@
             "type": "Microsoft.Resources/deployments",
             "apiVersion": "2017-05-10",
             "copy": {
-                "count": 2,
+                "count": 1,
                 "name": "nfs-ha-vm-loop"
             },
             "dependsOn": [
