@@ -682,4 +682,6 @@ EOF
   systemctl daemon-reload
   service varnish restart
 
+  enable_password_authentication
+
 }  > /tmp/setup.log

@@ -76,6 +76,14 @@ function get_php_version {
     echo $_PHPVER
 }
 
+function enable_password_authentication
+{
+  sudo sed -i "s~PasswordAuthentication no~PasswordAuthentication yes~" /etc/ssh/sshd_config  
+  sudo sed -i "s~#UseLogin no~UseLogin yes~" /etc/ssh/sshd_config 
+  sudo sed -i "s~#   StrictHostKeyChecking ask~   StrictHostKeyChecking no~" /etc/ssh/ssh_config 
+  sudo systemctl restart sshd 
+}
+
 function install_php_mssql_driver
 {
     # Download and build php/mssql driver

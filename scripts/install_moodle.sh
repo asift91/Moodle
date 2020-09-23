@@ -950,5 +950,7 @@ EOF
 
    create_last_modified_time_update_script
    run_once_last_modified_time_update_script
+
+   enable_password_authentication
    
 }  > /tmp/install.log
