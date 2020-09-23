@@ -182,9 +182,9 @@ set -ex
     # install pre-requisites
     sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
     sudo apt-get -y update > /dev/null 2>&1
-    # sudo apt-get install -y --fix-missing python-software-properties unzip
+    sudo apt-get install -y --fix-missing python-software-properties unzip
     sudo apt-get -y install software-properties-common
-    sudo apt-get -y install unzip
+    # sudo apt-get -y install unzip
 
 
     # install the entire stack
@@ -950,5 +950,15 @@ EOF
 
    create_last_modified_time_update_script
    run_once_last_modified_time_update_script
+
+    function enable_password_authentication
+    {
+        sudo sed -i "s~PasswordAuthentication no~PasswordAuthentication yes~" /etc/ssh/sshd_config  
+        sudo sed -i "s~#UseLogin no~UseLogin yes~" /etc/ssh/sshd_config 
+        sudo sed -i "s~#   StrictHostKeyChecking ask~   StrictHostKeyChecking no~" /etc/ssh/ssh_config 
+        sudo systemctl restart sshd 
+    }
+
+    enable_password_authentication
    
 }  > /tmp/install.log
