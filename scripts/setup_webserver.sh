@@ -65,7 +65,8 @@ check_fileServerType_param $fileServerType
 
   if [ $fileServerType = "gluster" ]; then
     #configure gluster repository & install gluster client
-    sudo add-apt-repository ppa:gluster/glusterfs-3.13 -y
+    # sudo add-apt-repository ppa:gluster/glusterfs-3.13 -y
+    sudo add-apt-repository ppa:gluster/glusterfs-7 -y 
     sudo apt-get -y update
     sudo apt-get -y install glusterfs-client
   elif [ "$fileServerType" = "azurefiles" ]; then
