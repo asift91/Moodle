@@ -58,7 +58,7 @@ check_fileServerType_param $fileServerType
 
   # install pre-requisites
   sudo apt-get -y install python-software-properties unzip rsyslog
-  sudo apt-get -y install software-properties-common
+  # sudo apt-get -y install software-properties-common
   # sudo apt-get -y install unzip
   # sudo apt-get -y install rsyslog
   sudo apt-get -y install postgresql-client mysql-client git

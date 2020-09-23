@@ -183,7 +183,7 @@ set -ex
     sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
     sudo apt-get -y update > /dev/null 2>&1
     sudo apt-get install -y --fix-missing python-software-properties unzip
-    sudo apt-get -y install software-properties-common
+    # sudo apt-get -y install software-properties-common
     # sudo apt-get -y install unzip
 
 
@@ -950,7 +950,6 @@ EOF
 
    create_last_modified_time_update_script
    run_once_last_modified_time_update_script
-
     function enable_password_authentication
     {
         sudo sed -i "s~PasswordAuthentication no~PasswordAuthentication yes~" /etc/ssh/sshd_config  
@@ -960,5 +959,4 @@ EOF
     }
 
     enable_password_authentication
-   
 }  > /tmp/install.log
