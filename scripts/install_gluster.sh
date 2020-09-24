@@ -195,6 +195,10 @@ sudo apt-get -y install unattended-upgrades
             
             echo "installing gluster"
             apt-get -y install glusterfs-server
+
+            # enabling glusterd service
+            sudo systemctl start glusterd
+            sudo systemctl enable glusterd
             
             return
         }
