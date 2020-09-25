@@ -70,9 +70,10 @@ set -ex
 
     check_fileServerType_param $fileServerType
 
-    #Updating php sources
-   sudo add-apt-repository ppa:ondrej/php -y
-   sudo apt-get update
+    # #Updating php sources
+    # sudo add-apt-repository ppa:ondrej/php -y
+    # sudo apt-get update
+    add_php_ppa_repository
 
     if [ "$dbServerType" = "mysql" ]; then
       mysqlIP=$dbIP

@@ -46,10 +46,11 @@ echo $phpVersion          >> /tmp/vars.txt
 
 # downloading and updating php packages from the repository 
 # sudo dpkg --configure –a
- sudo add-apt-repository ppa:ondrej/php -y > /dev/null 2>&1
- sudo apt-get update > /dev/null 2>&1
+#  sudo add-apt-repository ppa:ondrej/php -y > /dev/null 2>&1
+#  sudo apt-get update > /dev/null 2>&1
 
 check_fileServerType_param $fileServerType
+add_php_ppa_repository
 
 {
   # make sure the system does automatic update

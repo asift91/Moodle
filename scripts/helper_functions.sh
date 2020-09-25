@@ -80,6 +80,12 @@ function get_php_version {
     echo $_PHPVER
 }
 
+function add_php_ppa_repository
+{
+  # Updating php packages  
+    sudo add-apt-repository ppa:ondrej/php -y
+    sudo apt-get update
+}
 function install_software_properties
 {
   # Checks the ubuntu OS version, installs the software properties.
