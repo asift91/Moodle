@@ -7,9 +7,13 @@ function get_setup_params_from_configs_json
     local configs_json_path=${1}    # E.g., /var/lib/cloud/instance/moodle_on_azure_configs.json
 
     # (dpkg -l jq &> /dev/null) || (apt -y update; apt -y install jq)
-    sudo add-apt-repository universe
-	  sudo apt-get -y update
-	  sudo apt-get -y install jq
+    # sudo add-apt-repository universe
+	  # sudo apt-get -y update
+	  # sudo apt-get -y install jq
+
+    # Installing jq by using curl command.
+    curl https://stedolan.github.io/jq/download/linux64/jq > /usr/bin/jq 
+    chmod +x /usr/bin/jq
 	
     # Wait for the cloud-init write-files user data file to be generated (just in case)
     local wait_time_sec=0
@@ -74,6 +78,34 @@ function get_php_version {
         _PHPVER=`/usr/bin/php -r "echo PHP_VERSION;" | /usr/bin/cut -c 1,2,3`
     fi
     echo $_PHPVER
+}
+
+function install_software_properties
+{
+  # Checks the ubuntu OS version, installs the software properties.
+    . /etc/lsb-release
+    echo $DISTRIB_RELEASE
+    if [ $DISTRIB_RELEASE != "18.04" ]; then
+        echo -e "ubuntu version is 16.04"
+        sudo apt-get install -y --fix-missing python-software-properties
+    else
+        echo -e "ubuntu version is 18.04"
+        sudo apt-get -y install software-properties-common
+    fi
+}
+
+function mask_apache_service
+{
+  # if webservertype is nginx then apache2 will be masked.
+    service=apache2
+    webServerType=$1
+    if [ "$webServerType" = "nginx" ]; then
+        if [ $(ps -ef | grep -v grep | grep $service | wc -l) > 0 ]; then
+            echo “Stop the $service!!!”
+            sudo systemctl stop $service
+            sudo systemctl mask $service
+        fi
+    fi
 }
 
 function install_php_mssql_driver
