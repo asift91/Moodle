@@ -91,13 +91,16 @@ function install_software_properties
   # Checks the ubuntu OS version, installs the software properties.
     . /etc/lsb-release
     echo $DISTRIB_RELEASE
-    if [ $DISTRIB_RELEASE != "18.04" ]; then
-        echo -e "ubuntu version is 16.04"
-        sudo apt-get install -y --fix-missing python-software-properties
-    else
-        echo -e "ubuntu version is 18.04"
-        sudo apt-get -y install software-properties-common
-    fi
+    case "$DISTRIB_RELEASE" in
+      "18.04") 
+      echo -e "ubuntu version is 18.04"
+      sudo apt-get -y install software-properties-common
+      ;;
+      "16.04") 
+      echo -e "ubuntu version is 16.04"
+      sudo apt-get install -y --fix-missing python-software-properties
+      ;;
+    esac
 }
 
 function mask_apache_service
