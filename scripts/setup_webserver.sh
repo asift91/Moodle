@@ -78,9 +78,9 @@ add_php_ppa_repository
   # passing php versions $phpVersion
   sudo apt-get -y install varnish php$phpVersion php$phpVersion-cli php$phpVersion-curl php$phpVersion-zip php-pear php$phpVersion-mbstring php$phpVersion-dev mcrypt
 
-  if [ $DISTRIB_RELEASE != "18.04" ]; then
+  # if [ $DISTRIB_RELEASE != "18.04" ]; then
     mask_apache_service $webServerType
-  fi
+  # fi
 
   if [ "$webServerType" = "nginx" -o "$httpsTermination" = "VMSS" ]; then
     sudo apt-get -y install nginx
@@ -665,9 +665,9 @@ sub vcl_synth {
 }
 EOF
 
-  if [ $DISTRIB_RELEASE != "16.04" ]; then
-    mask_apache_service $webServerType
-  fi
+  # if [ $DISTRIB_RELEASE != "16.04" ]; then
+  #   mask_apache_service $webServerType
+  # fi
 
   # Restart Varnish
   systemctl daemon-reload
