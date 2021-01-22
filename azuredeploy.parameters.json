@@ -1,9 +1,13 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "contentVersion": "1.0.0.0",
         "parameters": {
-                "sshPublicKey":                { "value": "GEN-SSH-PUB-KEY" },
-                "fileServerDiskCount":         { "value": 2 },
-                "fileServerDiskSize":          { "value": 32 }
+                "_artifactsLocation": {
+                        "value": "https://raw.githubusercontent.com/Azure/Moodle/master/"
+                },
+                "artifactsSasToken": {"value": ""},
+                "location": { "value": "East US"},
+                "fileServerType":{ "value": "azurefiles"},
+                "storageAccountType": {"value": "Premium_LRS"}
         }
 }
